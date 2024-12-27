@@ -1,0 +1,179 @@
+.tablepress {
+    background: none;
+}
+
+.tablepress * {
+    background: none !important;
+}
+
+.tablepress *::before,
+.tablepress *::after,
+.dataTables_paginate *::before,
+.dataTables_paginate *::after {
+    font-style: normal;
+}
+
+.tablepress thead {
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color);
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
+}
+
+.tablepress th,
+.tablepress td {
+    padding: .6em 1em !important;
+    color: inherit !important;
+}
+
+.tablepress th:hover,
+.tablepress th[aria-sort] {
+    color: var(--accent-color) !important;
+    background: fixed var(--tertiary-color) !important;
+}
+
+.dataTables_length,
+.dataTables_filter,
+.dt-length,
+.dt-search {
+    margin-bottom: .6em;
+    min-height: 2.7em;
+}
+
+.dataTables_length label,
+.dataTables_filter label,
+.dt-length label,
+.dt-search label {
+    color: var(--tertiary-color);
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
+}
+
+.dataTables_length select,
+.dataTables_filter input,
+.dt-length select,
+.dt-search input {
+    margin: 0 !important;
+    border: 2px solid currentColor;
+    border-color: var(--tertiary-color);
+    border-radius: 0;
+
+    color: var(--tertiary-color);
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
+
+    background: none;
+}
+
+.dataTables_length select,
+.dt-length select {
+    padding-block: .6em !important;
+
+    text-align: center;
+}
+
+.dataTables_filter input,
+.dt-search input {
+    margin-left: 1em !important;
+    padding: .6em 1em !important;
+
+    appearance: none !important;
+}
+
+.dataTables_filter input:focus,
+.dt-search input:focus {
+    outline: none;
+
+    color: var(--accent-color);
+    background: fixed var(--tertiary-color);
+}
+
+
+
+.dt-column-order {
+    color: inherit !important;
+}
+
+/* high specificity necessary due to plugin default css using !important aswell */
+body main .wrapper .dt-container .dt-column-order::before,
+body main .wrapper .dt-container .dt-column-order::after {
+    color: inherit !important;
+    text-shadow: none !important;
+
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+
+    opacity: .5;
+}
+
+.dt-ordering-asc .dt-column-order::before,
+.dt-ordering-desc .dt-column-order::after {
+    opacity: 1 !important;
+}
+
+.dt-column-order::before {
+    content: "\f077" !important;
+}
+
+.dt-column-order::after {
+    content: "\f078" !important;
+}
+
+
+
+.dataTables_paginate {
+    margin: .6em 0 0 !important;
+    padding: 0 calc(1ch + 1em) !important;
+}
+
+/* high specificity necessary due to plugin default css using !important aswell */
+.dataTables_paginate .paginate_button,
+main .wrapper .dt-container .dt-paging .dt-paging-button,
+main .wrapper .dt-container .dt-paging .dt-paging-button:hover {
+    color: inherit !important;
+}
+
+.dataTables_paginate .paginate_button.disabled,
+.dt-container .dt-paging-button.disabled  {
+    opacity: .5;
+}
+
+.dataTables_paginate .previous,
+.dataTables_paginate .next,
+.dt-paging .previous,
+.dt-paging .next {
+    font-size: 0 !important;
+}
+
+.dataTables_paginate .previous::before,
+.dataTables_paginate .next::after,
+.dt-paging .previous::before,
+.dt-paging .next::after {
+    color: inherit !important;
+    text-shadow: none !important;
+
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+}
+
+.dataTables_paginate .previous::before,
+.dt-paging .previous::before {
+    content: "\f053 " !important;
+}
+
+.dataTables_paginate .next::after,
+.dt-paging .next::after {
+    content: "\f054 " !important;
+}
+
+.dt-paging .current {
+    border: none !important;
+}

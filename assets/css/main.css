@@ -1,0 +1,162 @@
+@import url('futura.css');
+
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	color: inherit;
+	text-decoration: none;
+	box-sizing: inherit;
+}
+
+@media (prefers-reduced-motion) {
+    *,
+	::before,
+	::after {
+		transition: none !important;
+	}
+}
+
+html {
+	text-rendering: optimizeLegibility;
+	font-size: 16px;
+}
+
+@media (min-width: 544px) {
+    html {
+		font-size: 14px;
+	}
+}
+
+html, body {
+	position: relative;
+	overflow-x: hidden;
+}
+
+body {
+	font-family: var(--main-font);
+	font-size: 1rem;
+	line-height: 1.5;
+	color: var(--secondary-color);
+    margin: 0;
+
+	background: fixed var(--primary-background-color) !important;
+
+	max-height: calc(100vh - var(--wordpress-support-bar));
+	max-height: calc(100dvh - var(--wordpress-support-bar));
+	scroll-snap-type: y proximity;
+}
+
+@supports not (scroll-snap-type: y proximity) {
+    body {
+        max-height: unset;
+    }
+}
+
+main {
+	margin-top: var(--nav-height-small);
+	padding-bottom: var(--standard-margin);
+	min-height: calc(var(--nav-height-big) - var(--nav-height-small));
+}
+
+a, area, button, [role="button"], input, label, select, summary, textarea {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+
+#wpadminbar {
+	position: fixed;
+}
+
+main>.wrapper>* {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: var(--standard-margin) .714285rem;
+	box-sizing: border-box;
+}
+
+.wrapper>:first-child {
+    padding-top: calc(var(--nav-height-big) - var(--nav-height-small)) !important;
+
+	scroll-snap-align: start;
+	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
+}
+
+.wrapper>header.full-sized:first-child+* {
+	scroll-snap-align: start;
+	scroll-margin: var(--nav-height-small) 0 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: var(--header-font);
+	font-weight: bold;
+	text-transform: var(--header-texttransform);
+	letter-spacing: var(--emphasized-letterspacing);
+}
+
+h2,
+h3,
+h4,
+h5 {
+    position: relative;
+    margin-bottom: .6em;
+
+	color: var(--primary-color);
+    line-height: 1.5;
+}
+
+h1 {
+	font-size: 4rem;
+	line-height: 1.1;
+}
+
+h2 {
+	font-size: 2.5rem !important;
+}
+
+h3 {
+	font-size: 2rem !important;
+}
+
+h4 {
+	font-size: 1.5rem !important;
+}
+
+h5 {
+	font-size: 1.25rem !important;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+a {
+	text-decoration: underline;
+	font-style: italic;
+}
+
+s {
+    text-decoration: line-through var(--tertiary-color) .15em;
+}
+
+hr {
+	width: 90% !important;
+	height: 1px !important;
+	margin: var(--standard-margin) auto;
+	border: none !important;
+
+	background: var(--tertiary-color) !important;
+}
+
+footer {
+	scroll-snap-align: end;
+}

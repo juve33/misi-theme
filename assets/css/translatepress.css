@@ -1,0 +1,104 @@
+#trp-floater-ls.trp-language-switcher-container {
+    --distance-from-edge: 20px;
+    --margin-top: 20%;
+
+    position: fixed !important;
+    height: unset !important;
+    width: unset !important;
+
+    background-color: transparent !important;
+    box-shadow: none !important;
+    box-sizing: border-box;
+}
+
+.trp-bottom-left {
+    bottom: var(--distance-from-edge) !important;
+    left: var(--distance-from-edge) !important;
+}
+
+.trp-bottom-right {
+    bottom: var(--distance-from-edge) !important;
+    right: var(--distance-from-edge) !important;
+}
+
+.trp-top-left {
+    top: calc(var(--nav-height) + var(--distance-from-edge) - var(--margin-top) + var(--wordpress-support-bar)) !important;
+    left: var(--distance-from-edge) !important;
+
+    transition: none;
+}
+
+.trp-top-right {
+    top: calc(var(--nav-height) + var(--distance-from-edge) - var(--margin-top) + var(--wordpress-support-bar)) !important;
+    right: var(--distance-from-edge) !important;
+
+    transition: none;
+}
+
+.sticky ~ .trp-top-left,
+.sticky ~ .trp-top-right {
+    top: calc(var(--nav-height-small) + var(--distance-from-edge) - var(--margin-top) + var(--wordpress-support-bar)) !important;
+
+    transition: top 0.4s ease 0s;
+}
+
+@media (min-width: 992px) {
+    .trp-top-left,
+    .trp-top-right {
+        transition: top 0.4s ease 0s;
+    }
+}
+
+#trp-floater-ls-language-list {
+    margin: 0 !important;
+}
+
+#trp-floater-ls .trp-language-wrap {
+    padding: 0 !important;
+}
+
+#trp-floater-ls.trp-language-switcher-container a,
+#trp-floater-ls.trp-language-switcher-container a:hover {
+    border-radius: 50% !important;
+
+    color: var(--accent-color) !important;
+    background-color: var(--primary-color) !important;
+}
+
+#trp-floater-ls.trp-language-switcher-container a {
+    --size: 60px;
+
+    height: var(--size);
+    width: var(--size);
+
+    display: flex;
+    flex-wrap: unset !important;
+    justify-content: center;
+    align-items: center;
+
+    margin: var(--margin-top) 2px 2px !important;
+    padding: 25% !important;
+
+    font-family: var(--secondary-font);
+    font-weight: bold;
+    text-transform: var(--emphasized-texttransform);
+    box-shadow: inset 0px 0px 0px 2px var(--accent-color);
+}
+
+@media (max-width: 640px) {
+    #trp-floater-ls.trp-language-switcher-container {
+        --margin-top: 1%;
+    }
+
+    #trp-floater-ls.trp-language-switcher-container a {
+        --size: 46px;
+
+        margin: var(--margin-top) 1px 1px !important;
+
+        box-shadow: inset 0px 0px 0px 1px var(--accent-color);
+    }
+}
+
+#trp-floater-ls.trp-language-switcher-container a img {
+    margin: 0 !important;
+}
