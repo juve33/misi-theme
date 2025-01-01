@@ -6,33 +6,6 @@ function misitheme_theme_support() {
     add_theme_support( 'custom-logo' );
     add_theme_support( 'block-patterns' );
 
-
-    $color_palette = array();
-
-    $colors = array(
-        array( 'Primary Color', 'primary_color', 'primary-color' ),
-        array( 'Secondary Color', 'secondary_color', 'secondary-color' ),
-        array( 'Tertiary Color', 'tertiary_color', 'tertiary-color' ),
-        array( 'Accent Color', 'accent_color', 'accent-color' ),
-        array( 'Primary Background Color', 'primary_background_color', 'primary-background-color' ),
-    );
-
-    foreach ( $colors as $color ) :
-        $theme_mod_color = get_theme_mod( $color[1] );
-        if ( $theme_mod_color ) {
-            array_push( $color_palette,
-                array(
-                    'name'  => esc_html__( $color[0], 'misi' ),
-                    'slug'  => $color[2],
-                    'color' => esc_attr( $theme_mod_color ),
-                )
-            );
-        }
-    endforeach;
-
-    add_theme_support( 'editor-color-palette', $color_palette );
-
-
     remove_theme_support('core-block-patterns');
 
 }
@@ -84,65 +57,15 @@ function misitheme_customize_register( $wp_customize ) {
         )
     );
 
-
-
-    $colors = array(
-        array( 'Primary Color', 'primary_color', '#604734' ),
-        array( 'Secondary Color', 'secondary_color', '#363636' ),
-        array( 'Tertiary Color', 'tertiary_color', '#e2001a' ),
-        array( 'Accent Color', 'accent_color', '#fff' ),
-        array( 'Primary Background Color', 'primary_background_color', '#fff' ),
-    );
-
-    foreach ( $colors as $color ) :
-        $wp_customize->add_setting(
-            $color[1],
-            array(
-                'default' => $color[2],
-                'sanitize_callback' => 'sanitize_hex_color',
-            )
-        );
-        $wp_customize->add_control(
-            new WP_Customize_Color_Control(
-                $wp_customize,
-                $color[1],
-                array(
-                    'label' => $color[0],
-                    'section' => 'colors',
-                    'settings' => $color[1],
-                )
-            )
-        );
-    endforeach;
-
 }
 
 add_action('customize_register', 'misitheme_customize_register');
 
 
 
-remove_action( 'wp_head', '_wp_render_title_tag', 1 );
-
-
-
 function misitheme_custom_css_properties() {
 
     echo '<style type="text/css" id="misitheme-variables">:root { ';
-
-    $colors = array(
-        array( 'primary_color', 'primary-color' ),
-        array( 'secondary_color', 'secondary-color' ),
-        array( 'tertiary_color', 'tertiary-color' ),
-        array( 'accent_color', 'accent-color' ),
-        array( 'primary_background_color', 'primary-background-color' ),
-    );
-
-    foreach ( $colors as $color ) :
-        $theme_mod_color = get_theme_mod( $color[0] );
-        if ( $theme_mod_color ) {
-            echo '--' . $color[1] . ': ' . esc_attr( $theme_mod_color ) . '; ';
-        }
-    endforeach;
 
     echo '}</style>';
 
@@ -156,7 +79,6 @@ function misitheme_menus() {
 
     $location = array(
         'primary' => "Main Navigation",
-        'footer' => "Footer Menu, e.g. for legal links"
     );
     register_nav_menus($location);
     
