@@ -7,7 +7,7 @@
     width: calc(100% - 2 * var(--margin));
     max-width: calc(100% - 2 * var(--margin));
 
-    font-family: "TGL",Arial,sans-serif;
+    font-family: var(--secondary-font);
     font-size: 1.25rem;
 
     z-index: 9999;
@@ -28,9 +28,6 @@
 }
 
 .nav-wrapper {
-    --padding-block: .5em;
-    --padding-inline: .75em;
-
     position: relative;
     width: 100%;
     line-height: 1em;

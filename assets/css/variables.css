@@ -19,19 +19,16 @@
 }
 
 :root {
+    --standard-margin: 2rem;
+
+    --padding-block: .5em;
+    --padding-inline: .75em;
+
     --wordpress-support-bar: 0px;
-    
-
-    --emphasized-texttransform: uppercase;
-    --emphasized-letterspacing: 0em;
 
 
-    --header-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --header-texttransform: uppercase;
-
-    --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --details-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --main-font: "Helvetica Neue",Arial,sans-serif;
+    --secondary-font: "TGL",Arial,sans-serif;
 }
 
 .customize-support {

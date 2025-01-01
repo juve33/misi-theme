@@ -61,8 +61,9 @@ main {
 	max-height: calc(100vh - var(--wordpress-support-bar) - var(--margin) - var(--border));
 	max-height: calc(100dvh - var(--wordpress-support-bar) - var(--margin) - var(--border));
 
-	overflow: scroll;
-	overscroll-behavior: none;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	overscroll-behavior-y: none;
 
 	box-sizing: border-box;
 
@@ -148,22 +149,46 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 }
 
 main>.wrapper>* {
-	max-width: 1200px;
+	max-width: 100%;
 	margin: 0 auto;
-	padding: var(--standard-margin) 1rem;
+	padding: var(--standard-margin) .75rem 0;
 	box-sizing: border-box;
 }
 
 .wrapper>:first-child {
-    padding-top: calc(var(--nav-height-big) - var(--nav-height-small)) !important;
-
 	scroll-snap-align: start;
-	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
+	scroll-margin: 0 0 0 !important;
 }
 
-.wrapper>header.full-sized:first-child+* {
-	scroll-snap-align: start;
-	scroll-margin: var(--nav-height-small) 0 0 !important;
+.wrapper>:last-child {
+	padding-bottom: 4.5rem;
+}
+
+@media (min-width: 544px) {
+    main>.wrapper>* {
+		padding-inline: 1rem;
+	}
+
+	.wrapper>:last-child {
+		padding-bottom: 4rem;
+	}
+}
+
+@media (min-width: 992px) {
+    main>.wrapper>* {
+		max-width: 90%;
+	}
+
+	.wrapper>:last-child {
+		padding-bottom: 5rem;
+	}
+}
+
+@media (min-width: 2570px) {
+    main>.wrapper>* {
+		max-width: 2300px;
+		margin: 0 auto;
+	}
 }
 
 h1,

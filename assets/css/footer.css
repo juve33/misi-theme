@@ -10,7 +10,7 @@ footer {
 
     align-items: center;
 
-    font-family: "TGL",Arial,sans-serif;
+    font-family: var(--secondary-font);
 
     z-index: 9998;
 }
