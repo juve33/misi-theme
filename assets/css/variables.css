@@ -1,18 +1,26 @@
+@font-face{
+	font-family: 'TGL';
+	src:
+		url('../fonts/TGL31034TT/TGL 31034-1.ttf') format('truetype');
+        
+	font-display: swap;
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face{
+	font-family: 'TGL';
+	src:
+        url('../fonts/TGL31034TT/TGL 31034-2.ttf') format('truetype');
+        
+	font-display: swap;
+	font-style: italic;
+	font-weight: normal;
+}
+
 :root {
-    --nav-height-big: 122px;
-    --nav-height-small: 52px;
-    --nav-height: var(--nav-height-big);
-    --standard-margin: 2.625rem;
-
-    --primary-color: #604734;
-    --secondary-color: #363636;
-    --tertiary-color: #e2001a;
-    --accent-color: #fff;
-    --primary-background-color: #fff;
-
     --wordpress-support-bar: 0px;
-
-
+    
 
     --emphasized-texttransform: uppercase;
     --emphasized-letterspacing: 0em;
@@ -24,60 +32,14 @@
     --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
     --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
     --details-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-
-    /*
-    --emphasized-texttransform: none;
-    --emphasized-letterspacing: 0;
-
-
-    --header-font: "FC Sans Pauli Stencil","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --header-texttransform: uppercase;
-
-    --main-font: "FC Sans Pauli","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --secondary-font: "FC Sans Pauli Italics","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --details-font: "FC Sans Pauli Tape","Helvetica Neue",Helvetica,Arial,sans-serif;
-    */
 }
 
 .customize-support {
     --wordpress-support-bar: 32px;
 }
 
-@media (min-width: 768px) {
-    :root {
-        --nav-height-big: 128px;
-        --standard-margin: 48px;
-    }
-}
-
-@media (min-width: 992px) {
-    :root {
-        --nav-height-small: 64px;
-    }
-}
-
 @media (max-width: 782px) {
     .customize-support {
         --wordpress-support-bar: 46px;
-    }
-}
-
-.pride {
-    --primary-background-color: linear-gradient(120deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff) !important;
-}
-
-.trans-pride {
-    --tertiary-color: linear-gradient(red, orange, #dd0, green, #0dd, blue, purple) !important;
-    --primary-background-color: linear-gradient(120deg, #5BCEFA, #F5A9B8, #fff, #F5A9B8, #5BCEFA) !important;
-}
-
-@media (min-width: 992px) {
-    .pride {
-        --primary-background-color: linear-gradient(150deg, #ffadad, #ffd6a5, #fdffb6, #caffbf, #9bf6ff, #a0c4ff, #bdb2ff, #ffc6ff) !important;
-    }
-    
-    .trans-pride {
-        --tertiary-color: linear-gradient(red, orange, #dd0, green, #0dd, blue, purple) !important;
-        --primary-background-color: linear-gradient(150deg, #5BCEFA, #F5A9B8, #fff, #F5A9B8, #5BCEFA) !important;
     }
 }
