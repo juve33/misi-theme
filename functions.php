@@ -110,7 +110,6 @@ function misitheme_allowed_block_types( $allowed_block_types, $block_editor_cont
         'core/block',
         'core/button',
         'core/buttons',
-        'core/code',
         'core/column',
         'core/columns',
         'core/cover',
@@ -127,22 +126,13 @@ function misitheme_allowed_block_types( $allowed_block_types, $block_editor_cont
         'core/media-text',
         'core/missing',
         'core/paragraph',
-        'core/post-title',
-        'core/quote',
         'core/separator',
         'core/shortcode',
-        'core/site-tagline',
-        'core/site-title',
-        'core/spacer',
         'core/table',
         'core/video',
         'tablepress/table',
         'yoast/faq-block',
         'yoast/how-to-block',
-        'lupus-plugin/header',
-        'lupus-plugin/horizontal-scroll',
-        'lupus-plugin/section',
-        'lupus-plugin/subtitle'
 	);
 
 	return $allowed_block_types;

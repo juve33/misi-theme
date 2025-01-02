@@ -1,6 +1,4 @@
 .main-nav {
-    --line-thickness: 2px;
-
     position: fixed;
     bottom: var(--margin);
     right: var(--margin);

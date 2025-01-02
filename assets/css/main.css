@@ -88,9 +88,9 @@ main::before {
 	position: absolute;
 	top: var(--margin);
 	box-shadow: 
-		inset -2px 0px 0px 0px #000,
-		inset 2px 0px 0px 0px #000,
-		inset 0px 2px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000,
+		inset var(--line-thickness) 0px 0px 0px #000,
+		inset 0px var(--line-thickness) 0px 0px #000;
 }
 
 main::after {
@@ -98,9 +98,9 @@ main::after {
 	bottom: var(--margin);
 
 	box-shadow: 
-		inset -2px 0px 0px 0px #000,
-		inset 2px 0px 0px 0px #000,
-		inset 0px -2px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000,
+		inset var(--line-thickness) 0px 0px 0px #000,
+		inset 0px calc(-1 * var(--line-thickness)) 0px 0px #000;
 }
 
 .wrapper {
@@ -129,14 +129,14 @@ main::after {
 	left: var(--margin);
 
 	box-shadow: 
-		inset 2px 0px 0px 0px #000;
+		inset var(--line-thickness) 0px 0px 0px #000;
 }
 
 .wrapper::after {
 	right: var(--margin);
 	
 	box-shadow: 
-		inset -2px 0px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000;
 }
 
 a, area, button, [role="button"], input, label, select, summary, textarea {
