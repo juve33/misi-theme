@@ -36,6 +36,26 @@ add_filter( 'upload_mimes', 'misitheme_custom_mime_types' );
 function misitheme_customize_register( $wp_customize ) {
 
     $wp_customize->add_setting(
+        'darkmode_logo',
+        array()
+    );
+    $wp_customize->add_control(
+        new WP_Customize_Media_Control(
+            $wp_customize,
+            'darkmode_logo',
+            array(
+                'label' => 'Dark Mode Logo',
+                'description' => 'Logo that replaces the main logo in browser tabs in dark mode',
+                'section' => 'title_tagline',
+                'settings' => 'darkmode_logo',
+                'mime_type' => 'image'
+            )
+        )
+    );
+
+
+
+    $wp_customize->add_setting(
         'page_title_separator',
         array(
             'default' => "-"

@@ -25,6 +25,15 @@
 			$icon = $logo;
 		}
 
+		$darkmode_logo_id = get_theme_mod( 'darkmode_logo' );
+		$darkmode_logo = wp_get_attachment_image_src( $darkmode_logo_id );
+		if ( $darkmode_logo ) {
+			$darkmode_icon = $darkmode_logo[0];
+		}
+		else {
+			$darkmode_icon = $icon;
+		}
+
 	}
 
 ?>
@@ -40,8 +49,27 @@
 			} 
 		?>"
 	/>
-    <link rel="shortcut icon" href="<?php echo $icon ?>" />
-	<link rel="icon" href="<?php echo $icon ?>" />
+    <link id="favicon" rel="shortcut icon" href="<?php echo $icon ?>" />
+	<link id="favicon" rel="icon" href="<?php echo $icon ?>" />
+
+	<script id="misitheme-favicon-js" type="text/javascript">
+		document.addEventListener('DOMContentLoaded', () => {
+			const favicon = document.getElementById('favicon');
+			const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+			
+			function updateFavicon() {
+				if (darkModeMediaQuery.matches) {
+					favicon.href = "<?php echo $darkmode_icon; ?>";
+				} else {
+					favicon.href = "<?php echo $icon; ?>";
+				}
+			}
+
+			updateFavicon();
+
+			darkModeMediaQuery.addEventListener('change', updateFavicon);
+		});
+	</script>
 
 	<?php
 		wp_head();
