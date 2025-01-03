@@ -20,6 +20,10 @@ footer a {
     text-decoration: none;
 }
 
+footer p {
+    padding-block: 0 !important;
+}
+
 footer .theme-info {
     display: none;
     

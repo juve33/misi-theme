@@ -1,3 +1,22 @@
+/* HEADING */
+
+.wp-block-heading {
+    font-family: var(--secondary-font);
+    line-height: 1.1;
+}
+
+
+
+/* PARAGRAPH */
+
+p {
+    padding-top: 1em !important;
+}
+
+
+
+/* ROW */
+
 :where(.wp-block-columns.is-layout-flex) {
     gap: 1em !important;
 }
