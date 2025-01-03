@@ -158,6 +158,8 @@
 }
 
 .main-nav .navigation .sub-menu li {
+    width: max-content;
+    
     box-shadow:
         inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
         inset 0px calc(-.5 * var(--line-thickness)) 0px 0px #000;
