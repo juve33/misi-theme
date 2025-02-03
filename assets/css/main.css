@@ -150,44 +150,32 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 	position: fixed;
 }
 
-main>.wrapper>* {
+.wrapper__inner {
 	max-width: 100%;
 	margin: 0 auto;
-	padding: var(--standard-margin) .75rem 0;
+	padding: var(--standard-margin) .75rem 4.5rem;
 	box-sizing: border-box;
-}
 
-.wrapper>:first-child {
 	scroll-snap-align: start;
 	scroll-margin: 0 0 0 !important;
 }
 
-.wrapper>:last-child {
-	padding-bottom: 4.5rem;
-}
-
 @media (min-width: 544px) {
-    main>.wrapper>* {
+    .wrapper__inner {
 		padding-inline: 1rem;
-	}
-
-	.wrapper>:last-child {
 		padding-bottom: 4rem;
 	}
 }
 
 @media (min-width: 992px) {
-    main>.wrapper>* {
+    .wrapper__inner {
 		max-width: 90%;
-	}
-
-	.wrapper>:last-child {
 		padding-bottom: 5rem;
 	}
 }
 
 @media (min-width: 2570px) {
-    main>.wrapper>* {
+    .wrapper__inner {
 		max-width: 2300px;
 		margin: 0 auto;
 	}
