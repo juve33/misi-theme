@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 4 4"
+    height="100%">
+
+    <defs>
+        <radialGradient id="RadialGradient">
+            <stop offset="0%" stop-color="#000" />
+            <stop offset="90%" stop-color="#000" />
+            <stop offset="100%" stop-color="#0000" />
+        </radialGradient>
+    </defs>
+
+    <circle cx="0" cy="0" r="1" fill="url(#RadialGradient)" />
+    <circle cx="4" cy="0" r="1" fill="url(#RadialGradient)" />
+    <circle cx="0" cy="4" r="1" fill="url(#RadialGradient)" />
+    <circle cx="4" cy="4" r="1" fill="url(#RadialGradient)" />
+    <circle cx="2" cy="2" r="1" fill="url(#RadialGradient)" />
+</svg>

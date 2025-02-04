@@ -186,16 +186,6 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: var(--header-font);
-	font-weight: bold;
-	text-transform: var(--header-texttransform);
-	letter-spacing: var(--emphasized-letterspacing);
-}
-
-h2,
-h3,
-h4,
-h5 {
     position: relative;
     margin-bottom: .6em;
 
@@ -212,24 +202,26 @@ h2 {
 	font-size: 2.5rem !important;
 }
 
-h3 {
-	font-size: 2rem !important;
+h3,
+h4,
+h5,
+h6 {
+	font-family: inherit !important;
+	font-style: italic;
+	font-weight: normal;
 }
 
-h4 {
+h3 {
 	font-size: 1.5rem !important;
 }
 
-h5 {
+h4 {
 	font-size: 1.25rem !important;
 }
 
-p {
-	margin-bottom: 1em;
-}
-
-p:last-child {
-	margin-bottom: 0;
+h5,
+h6 {
+	font-size: 1rem !important;
 }
 
 a {

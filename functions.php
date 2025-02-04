@@ -14,6 +14,19 @@ add_action('after_setup_theme', 'misitheme_theme_support');
 
 
 
+function misitheme_media_sizes() {
+
+    update_option( 'medium_size_h', 500 );
+    update_option( 'medium_size_w', 500 );
+    update_option( 'medium_large_size_w', 500 );
+    update_option( 'medium_large_size_h', 500 );
+
+}
+
+add_action('after_setup_theme', 'misitheme_media_sizes');
+
+
+
 function misitheme_empty_navigation() {
 
     echo '<ul class="navigation"></ul>';
