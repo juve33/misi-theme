@@ -1,0 +1,43 @@
+/* ITALICS */
+
+@font-face{
+	font-family: 'Liberation Serif';
+	src:
+		url('../fonts/liberation-fonts-ttf-2.1.5/LiberationSerif-BoldItalic.ttf') format('truetype');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'Liberation Serif';
+	src:
+		url('../fonts/liberation-fonts-ttf-2.1.5/LiberationSerif-Italic.ttf') format('truetype');
+        
+	font-display: swap;
+    font-style: italic;
+    font-weight: 100 500;
+}
+
+/* STRAIGHT */
+
+@font-face{
+	font-family: 'Liberation Serif';
+	src:
+		url('../fonts/liberation-fonts-ttf-2.1.5/LiberationSerif-Bold.ttf') format('truetype');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 600 1000;
+}
+
+@font-face{
+	font-family: 'Liberation Serif';
+	src:
+		url('../fonts/liberation-fonts-ttf-2.1.5/LiberationSerif-Regular.ttf') format('truetype');
+        
+	font-display: swap;
+    font-style: normal;
+    font-weight: 100 500;
+}

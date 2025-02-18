@@ -11,8 +11,18 @@
         <div class="theme-info">
             <?php
                 $theme = wp_get_theme();
+                $author = $theme->get( 'Author' );
+                $authorURI = $theme->get( 'AuthorURI' );
+
+                if ( $author ) {
+                    if ( $authorURI ) {
+                        echo 'WordPress Theme by <a href="' . $authorURI . '" target="_blank">' . $author . '</a>';
+                    }
+                    else {
+                        echo 'Wordpress Theme by ' . $author;
+                    }
+                }
             ?>
-            Wordpress Theme: <?php echo $theme->get( 'Name' ); ?> by <?php echo $theme->get( 'Author' ); ?>
         </div>
     </footer>
 

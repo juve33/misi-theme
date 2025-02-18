@@ -1,13 +1,11 @@
 .main-nav {
-    --line-thickness: 2px;
-
     position: fixed;
     bottom: var(--margin);
     right: var(--margin);
     width: calc(100% - 2 * var(--margin));
     max-width: calc(100% - 2 * var(--margin));
 
-    font-family: "TGL",Arial,sans-serif;
+    font-family: var(--secondary-font);
     font-size: 1.25rem;
 
     z-index: 9999;
@@ -28,9 +26,6 @@
 }
 
 .nav-wrapper {
-    --padding-block: .5em;
-    --padding-inline: .75em;
-
     position: relative;
     width: 100%;
     line-height: 1em;
@@ -128,11 +123,13 @@
 }
 
 .main-nav .navigation li.open,
+.main-nav .navigation li:has(:focus),
 .main-nav .navigation li:hover {
     background-color: #000;
 }
 
 .main-nav .navigation li.open>a,
+.main-nav .navigation li:has(:focus)>a,
 .main-nav .navigation li:hover>a {
     color: #fff;
 }
@@ -143,7 +140,7 @@
 }
 
 .main-nav .navigation .sub-menu {
-    display: none;
+    display: grid;
 
     position: absolute;
     bottom: calc(100% - var(--line-thickness));
@@ -151,6 +148,11 @@
 
     box-shadow: inset 0px 0px 0px var(--line-thickness) #000;
     background: #fff;
+
+    opacity: 0;
+    height: 0;
+
+    z-index: -1;
 }
 
 .main-nav .navigation :last-child .sub-menu {
@@ -158,11 +160,16 @@
 }
 
 .main-nav .navigation .menu-item.open .sub-menu,
+.main-nav .navigation .menu-item:has(:focus) .sub-menu,
 .main-nav .navigation .menu-item:hover .sub-menu {
-    display: grid;
+    opacity: 1;
+    height: auto;
 }
 
 .main-nav .navigation .sub-menu li {
+    width: max-content;
+    min-width: 100%;
+    
     box-shadow:
         inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
         inset 0px calc(-.5 * var(--line-thickness)) 0px 0px #000;

@@ -19,27 +19,20 @@
 }
 
 :root {
-    --wordpress-support-bar: 0px;
-    
+    --standard-margin: 5rem;
 
-    --emphasized-texttransform: uppercase;
-    --emphasized-letterspacing: 0em;
+    --padding-block: .5em;
+    --padding-inline: .75em;
+
+    --line-thickness: 2px;
+
+    --wordpress-support-bar: var(--wp-admin--admin-bar--height, 0px);
 
 
-    --header-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --header-texttransform: uppercase;
+    --main-font: "Liberation Serif","Times New Roman",sans-serif;
+    --secondary-font: "TGL",Arial,sans-serif;
 
-    --main-font: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    --secondary-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --details-font: "Futura","Helvetica Neue",Helvetica,Arial,sans-serif;
-}
 
-.customize-support {
-    --wordpress-support-bar: 32px;
-}
 
-@media (max-width: 782px) {
-    .customize-support {
-        --wordpress-support-bar: 46px;
-    }
+    --wp--style--gallery-gap-default: 1rem;
 }

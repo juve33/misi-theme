@@ -1,3 +1,5 @@
+@import url('liberation.css');
+
 *,
 ::before,
 ::after {
@@ -61,8 +63,10 @@ main {
 	max-height: calc(100vh - var(--wordpress-support-bar) - var(--margin) - var(--border));
 	max-height: calc(100dvh - var(--wordpress-support-bar) - var(--margin) - var(--border));
 
-	overflow: scroll;
-	overscroll-behavior: none;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	overscroll-behavior-y: none;
+	scrollbar-width: none;
 
 	box-sizing: border-box;
 
@@ -87,9 +91,9 @@ main::before {
 	position: absolute;
 	top: var(--margin);
 	box-shadow: 
-		inset -2px 0px 0px 0px #000,
-		inset 2px 0px 0px 0px #000,
-		inset 0px 2px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000,
+		inset var(--line-thickness) 0px 0px 0px #000,
+		inset 0px var(--line-thickness) 0px 0px #000;
 }
 
 main::after {
@@ -97,9 +101,13 @@ main::after {
 	bottom: var(--margin);
 
 	box-shadow: 
-		inset -2px 0px 0px 0px #000,
-		inset 2px 0px 0px 0px #000,
-		inset 0px -2px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000,
+		inset var(--line-thickness) 0px 0px 0px #000,
+		inset 0px calc(-1 * var(--line-thickness)) 0px 0px #000;
+}
+
+main::-webkit-scrollbar {
+	display: none;
 }
 
 .wrapper {
@@ -128,14 +136,14 @@ main::after {
 	left: var(--margin);
 
 	box-shadow: 
-		inset 2px 0px 0px 0px #000;
+		inset var(--line-thickness) 0px 0px 0px #000;
 }
 
 .wrapper::after {
 	right: var(--margin);
 	
 	box-shadow: 
-		inset -2px 0px 0px 0px #000;
+		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000;
 }
 
 a, area, button, [role="button"], input, label, select, summary, textarea {
@@ -147,23 +155,50 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 	position: fixed;
 }
 
-main>.wrapper>* {
-	max-width: 1200px;
+.wrapper__inner {
+	--padding-top-multiplier: .4;
+	max-width: 100%;
 	margin: 0 auto;
-	padding: var(--standard-margin) 1rem;
+	padding: calc(var(--padding-top-multiplier) * var(--standard-margin)) .75rem 4.5rem;
 	box-sizing: border-box;
-}
-
-.wrapper>:first-child {
-    padding-top: calc(var(--nav-height-big) - var(--nav-height-small)) !important;
 
 	scroll-snap-align: start;
-	scroll-margin: calc(var(--standard-margin) + var(--nav-height-small)) 0 0 !important;
+	scroll-margin: 0 0 0 !important;
 }
 
-.wrapper>header.full-sized:first-child+* {
-	scroll-snap-align: start;
-	scroll-margin: var(--nav-height-small) 0 0 !important;
+@media (min-width: 544px) {
+    .wrapper__inner {
+		padding-inline: 1rem;
+		padding-bottom: 4rem;
+	}
+}
+
+@media (min-width: 992px) {
+    .wrapper__inner {
+		max-width: 90%;
+		padding-bottom: 5rem;
+	}
+}
+
+@media (min-width: 1700px) {
+    .wrapper__inner {
+		max-width: 80%;
+	}
+}
+
+@media (min-width: 2570px) {
+    .wrapper__inner {
+		max-width: 2300px;
+		margin: 0 auto;
+	}
+}
+
+.wrapper__inner>* {
+	margin-bottom: var(--standard-margin);
+}
+
+.wrapper__inner>:last-child {
+	margin-bottom: 0;
 }
 
 h1,
@@ -171,50 +206,52 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: var(--header-font);
-	font-weight: bold;
-	text-transform: var(--header-texttransform);
-	letter-spacing: var(--emphasized-letterspacing);
-}
-
-h2,
-h3,
-h4,
-h5 {
     position: relative;
-    margin-bottom: .6em;
+    margin-bottom: .2em !important;
 
 	color: var(--primary-color);
     line-height: 1.5;
 }
 
 h1 {
-	font-size: 4rem;
+	font-size: 2.5rem !important;
 	line-height: 1.1;
 }
 
 h2 {
-	font-size: 2.5rem !important;
+	font-size: 1.75rem !important;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	font-family: inherit !important;
+	font-style: italic;
+	font-weight: normal;
 }
 
 h3 {
-	font-size: 2rem !important;
-}
-
-h4 {
 	font-size: 1.5rem !important;
 }
 
-h5 {
+h4 {
 	font-size: 1.25rem !important;
 }
 
-p {
-	margin-bottom: 1em;
+h5,
+h6 {
+	font-size: 1rem !important;
 }
 
-p:last-child {
-	margin-bottom: 0;
+@media (min-width: 1700px) {
+    h1 {
+		font-size: 4rem !important;
+	}
+
+	h2 {
+		font-size: 2.5rem !important;
+	}
 }
 
 a {
@@ -227,7 +264,6 @@ s {
 }
 
 hr {
-	width: 90% !important;
 	height: 1px !important;
 	margin: var(--standard-margin) auto;
 	border: none !important;
