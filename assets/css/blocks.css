@@ -199,12 +199,16 @@
 /* PARAGRAPH */
 
 p {
-	margin-bottom: 1em;
+    margin-block: 0 .6em !important;
     padding-top: 0 !important;
 }
 
+p+* {
+    margin-top: var(--standard-margin);
+}
+
 p:last-child {
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
 
 
