@@ -123,11 +123,13 @@
 }
 
 .main-nav .navigation li.open,
+.main-nav .navigation li:has(:focus),
 .main-nav .navigation li:hover {
     background-color: #000;
 }
 
 .main-nav .navigation li.open>a,
+.main-nav .navigation li:has(:focus)>a,
 .main-nav .navigation li:hover>a {
     color: #fff;
 }
@@ -138,7 +140,7 @@
 }
 
 .main-nav .navigation .sub-menu {
-    display: none;
+    display: grid;
 
     position: absolute;
     bottom: calc(100% - var(--line-thickness));
@@ -146,6 +148,11 @@
 
     box-shadow: inset 0px 0px 0px var(--line-thickness) #000;
     background: #fff;
+
+    opacity: 0;
+    height: 0;
+
+    z-index: -1;
 }
 
 .main-nav .navigation :last-child .sub-menu {
@@ -153,12 +160,15 @@
 }
 
 .main-nav .navigation .menu-item.open .sub-menu,
+.main-nav .navigation .menu-item:has(:focus) .sub-menu,
 .main-nav .navigation .menu-item:hover .sub-menu {
-    display: grid;
+    opacity: 1;
+    height: auto;
 }
 
 .main-nav .navigation .sub-menu li {
     width: max-content;
+    min-width: 100%;
     
     box-shadow:
         inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
