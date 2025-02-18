@@ -3,15 +3,11 @@
 ?>
 
 <div class="wrapper">
+	<div class="wrapper__inner">
 
-	<section class="wp-block-group full-sized is-layout-constrained wp-block-group-is-layout-constrained">
+	<h1 class="wp-block-heading"><?php esc_html_e( 'Page Not Found', 'misi' ) ?></h1>
 
-		<p class="has-text-align-left subtitle has-small-font-size">Error 404</p>
-
-		<h2 class="wp-block-heading">Page Not Found</h2>
-
-	</section>
-
+	</div>
 </div>
 
 <?php

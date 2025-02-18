@@ -16,7 +16,7 @@
 
                 if ( $author ) {
                     if ( $authorURI ) {
-                        echo 'Wordpress Theme by <a href="' . $authorURI . '" target="_blank">' . $author . '</a>';
+                        echo 'WordPress Theme by <a href="' . $authorURI . '" target="_blank">' . $author . '</a>';
                     }
                     else {
                         echo 'Wordpress Theme by ' . $author;
