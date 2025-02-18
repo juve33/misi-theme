@@ -127,7 +127,6 @@ function misi_allowed_block_types( $allowed_block_types, $block_editor_context )
         'core/shortcode',
         'core/table',
         'core/video',
-        'tablepress/table',
         'yoast/faq-block',
         'yoast/how-to-block',
 	);
@@ -145,15 +144,15 @@ function misi_register_styles() {
     $version = wp_get_theme()->get( 'Version' );
     
     $stylesheets = array(
-        array( 'main', 'main.css' ),
-        array( 'variables', 'variables.css' ),
-        array( 'nav', 'nav.css' ),
-        array( 'blocks', 'blocks.css' ),
-        array( 'footer', 'footer.css' ),
+        'main',
+        'variables',
+        'nav',
+        'blocks',
+        'footer',
     );
 
     foreach ( $stylesheets as $stylesheet ) :
-        wp_enqueue_style( 'misi-' . $stylesheet[0], get_template_directory_uri() . '/assets/css/' . $stylesheet[1], array(), $version, 'all' );
+        wp_enqueue_style( 'misi-' . $stylesheet, get_template_directory_uri() . '/assets/css/' . $stylesheet . '.css', array(), $version, 'all' );
     endforeach;
 
     wp_enqueue_style( 'misi-fontawesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', array(), '6.6.0', 'all' );
@@ -165,14 +164,13 @@ function misi_register_styles() {
     }
     
     $plugin_stylesheets = array(
-        array( 'tablepress', 'tablepress.css', 'tablepress/tablepress.php' ),
-        array( 'translatepress', 'translatepress.css', 'translatepress-multilingual/index.php' ),
-        array( 'yoast', 'yoast.css', 'wordpress-seo/wp-seo.php' ),
+        array( 'translatepress', 'translatepress-multilingual/index.php' ),
+        array( 'yoast', 'wordpress-seo/wp-seo.php' ),
     );
 
     foreach ( $plugin_stylesheets as $plugin_stylesheet ) :
-        if ( is_plugin_active( $plugin_stylesheet[2] ) ) {
-            wp_enqueue_style( 'misi-' . $plugin_stylesheet[0], get_template_directory_uri() . '/assets/css/' . $plugin_stylesheet[1], array(), $version, 'all' );
+        if ( is_plugin_active( $plugin_stylesheet[1] ) ) {
+            wp_enqueue_style( 'misi-' . $plugin_stylesheet[0], get_template_directory_uri() . '/assets/css/' . $plugin_stylesheet[0] . '.css', array(), $version, 'all' );
         }
     endforeach;
 
@@ -188,12 +186,12 @@ function misi_register_scripts() {
     wp_enqueue_script( 'misi-jquery', 'https://code.jquery.com/jquery-3.4.1.min.js', array(), '3.4.1', true );
 
     $scripts = array(
-        array( 'main', 'main.js' ),
-        array( 'navigation', 'navigation.js' ),
+        'main',
+        'navigation',
     );
 
     foreach ( $scripts as $script ) :
-        wp_enqueue_script( 'misi-' . $script[0], get_template_directory_uri() . '/assets/js/' . $script[1], array(), $version, true );
+        wp_enqueue_script( 'misi-' . $script, get_template_directory_uri() . '/assets/js/' . $script . '.js', array(), $version, true );
     endforeach;
 
 }
