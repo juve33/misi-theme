@@ -20,8 +20,10 @@ footer a {
     text-decoration: none;
 }
 
-footer p {
+footer * {
     padding-block: 0 !important;
+    font-size: 1rem !important;
+    display: inline;
 }
 
 footer .theme-info {

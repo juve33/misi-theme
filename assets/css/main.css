@@ -66,6 +66,7 @@ main {
 	overflow-x: hidden;
 	overflow-y: scroll;
 	overscroll-behavior-y: none;
+	scrollbar-width: none;
 
 	box-sizing: border-box;
 
@@ -103,6 +104,10 @@ main::after {
 		inset calc(-1 * var(--line-thickness)) 0px 0px 0px #000,
 		inset var(--line-thickness) 0px 0px 0px #000,
 		inset 0px calc(-1 * var(--line-thickness)) 0px 0px #000;
+}
+
+main::-webkit-scrollbar {
+	display: none;
 }
 
 .wrapper {
@@ -181,25 +186,33 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 	}
 }
 
+.wrapper__inner>* {
+	margin-bottom: var(--standard-margin);
+}
+
+.wrapper__inner>:last-child {
+	margin-bottom: 0;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
     position: relative;
-    margin-bottom: .6em;
+    margin-bottom: .2em !important;
 
 	color: var(--primary-color);
     line-height: 1.5;
 }
 
 h1 {
-	font-size: 4rem;
+	font-size: 2.5rem !important;
 	line-height: 1.1;
 }
 
 h2 {
-	font-size: 2.5rem !important;
+	font-size: 1.75rem !important;
 }
 
 h3,
@@ -222,6 +235,16 @@ h4 {
 h5,
 h6 {
 	font-size: 1rem !important;
+}
+
+@media (min-width: 1700px) {
+    h1 {
+		font-size: 4rem !important;
+	}
+
+	h2 {
+		font-size: 2.5rem !important;
+	}
 }
 
 a {
