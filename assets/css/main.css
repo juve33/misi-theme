@@ -180,6 +180,12 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 	}
 }
 
+@media (min-width: 1700px) {
+    .wrapper__inner {
+		max-width: 80%;
+	}
+}
+
 @media (min-width: 2570px) {
     .wrapper__inner {
 		max-width: 2300px;
@@ -258,7 +264,6 @@ s {
 }
 
 hr {
-	max-width: 90% !important;
 	height: 1px !important;
 	margin: var(--standard-margin) auto;
 	border: none !important;

@@ -230,6 +230,8 @@ p {
 
 .wrapper p {
     margin-block: 0 .6em !important;
+    max-width: 1200px;
+    margin-inline: auto;
 }
 
 p+* {
