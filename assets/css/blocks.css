@@ -38,6 +38,8 @@
     font-family: var(--secondary-font);
     line-height: 1.1;
 
+    max-width: 1200px;
+    margin-inline: auto;
     padding-top: 0;
 }
 
