@@ -1,3 +1,29 @@
+/* BUTTON */
+
+.wp-block-button {
+    box-shadow: 
+        inset var(--line-thickness) var(--line-thickness) 0px 0px #000,
+        inset calc(-1 * var(--line-thickness)) calc(-1 * var(--line-thickness)) 0px 0px #000;
+}
+
+.wp-block-button:has(:focus),
+.wp-block-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.wp-block-button a {
+    padding: var(--padding-block) var(--padding-inline);
+
+    background: none;
+    color: inherit;
+
+    font-family: var(--secondary-font);
+    font-style: normal;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
 /* GROUP */
 
 .wrapper .wp-block-group {
@@ -199,8 +225,11 @@
 /* PARAGRAPH */
 
 p {
-    margin-block: 0 .6em !important;
     padding-top: 0 !important;
+}
+
+.wrapper p {
+    margin-block: 0 .6em !important;
 }
 
 p+* {

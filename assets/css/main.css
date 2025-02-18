@@ -175,7 +175,6 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 
 @media (min-width: 992px) {
     .wrapper__inner {
-		--padding-top-multiplier: .4;
 		max-width: 90%;
 		padding-bottom: 5rem;
 	}
