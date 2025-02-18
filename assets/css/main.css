@@ -156,9 +156,10 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 }
 
 .wrapper__inner {
+	--padding-top-multiplier: .4;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: var(--standard-margin) .75rem 4.5rem;
+	padding: calc(var(--padding-top-multiplier) * var(--standard-margin)) .75rem 4.5rem;
 	box-sizing: border-box;
 
 	scroll-snap-align: start;
@@ -174,6 +175,7 @@ a, area, button, [role="button"], input, label, select, summary, textarea {
 
 @media (min-width: 992px) {
     .wrapper__inner {
+		--padding-top-multiplier: .4;
 		max-width: 90%;
 		padding-bottom: 5rem;
 	}
@@ -257,7 +259,7 @@ s {
 }
 
 hr {
-	width: 90% !important;
+	max-width: 90% !important;
 	height: 1px !important;
 	margin: var(--standard-margin) auto;
 	border: none !important;
