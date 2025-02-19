@@ -190,7 +190,6 @@
     .wp-block-media-text:first-child .wp-block-media-text__media,
     .wp-block-media-text:first-child .wp-block-media-text__media img {
         min-height: inherit;
-        max-height: initial;
     }
 }
 
