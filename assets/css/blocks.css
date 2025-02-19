@@ -137,8 +137,8 @@
 
 .wp-block-media-text:first-child {
     grid-template-columns: initial !important;
-    min-height: calc(100vh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4rem);
-    min-height: calc(100dvh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4rem);
+    min-height: calc(100vh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
+    min-height: calc(100dvh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
     margin-bottom: 0;
 }
 
