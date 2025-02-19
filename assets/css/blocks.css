@@ -196,20 +196,16 @@
 @media (max-width: 600px) {
     .wp-block-media-text .wp-block-media-text__media {
         position: initial;
-        top: initial;
+        top: 0;
         align-self: initial;
     }
 
     .wp-block-media-text:first-child .wp-block-media-text__media,
     .wp-block-media-text:first-child .wp-block-media-text__media img {
-        max-height: calc(100vh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
-        max-height: calc(100dvh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
+        max-height: calc(100vh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 3.5rem);
+        max-height: calc(100dvh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 3.5rem);
         width: initial;
         max-width: 100%;
-}
-
-    .wp-block-media-text:first-child .wp-block-media-text__media {
-        top: initial;
     }
 }
 
