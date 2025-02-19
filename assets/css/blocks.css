@@ -162,7 +162,10 @@
 .wp-block-media-text .wp-block-media-text__media {
     position: sticky;
     top: calc(var(--margin) + var(--border));
+
+    display: flex;
     align-self: start;
+    justify-content: center;
 }
 
 .wp-block-media-text:first-child .wp-block-media-text__media,
