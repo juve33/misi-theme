@@ -205,7 +205,8 @@
         max-height: calc(100vh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
         max-height: calc(100dvh - var(--wordpress-support-bar) - 2 * var(--margin) - 2 * var(--border) - var(--padding-top-multiplier) * var(--standard-margin) - 4.5rem);
         width: initial;
-    }
+        max-width: 100%;
+}
 
     .wp-block-media-text:first-child .wp-block-media-text__media {
         top: initial;
