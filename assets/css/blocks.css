@@ -159,6 +159,12 @@
     }
 }
 
+@media (max-width: 600px) {
+    .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+        padding-inline: 0;
+    }
+}
+
 .wp-block-media-text .wp-block-media-text__media {
     position: sticky;
     top: calc(var(--margin) + var(--border));
