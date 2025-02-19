@@ -237,6 +237,7 @@
 
 p {
     padding-top: 0 !important;
+    text-align: justify;
 }
 
 .wrapper p {
