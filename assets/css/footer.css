@@ -22,8 +22,14 @@ footer a {
 
 footer * {
     padding-block: 0 !important;
-    font-size: 1rem !important;
+    font-size: 12px !important;
     display: inline;
+}
+
+@media (min-width: 544px) {
+    footer * {
+        font-size: 1rem !important;
+    }
 }
 
 footer .theme-info {

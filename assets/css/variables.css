@@ -21,8 +21,8 @@
 :root {
     --standard-margin: 5rem;
 
-    --padding-block: .5em;
-    --padding-inline: .75em;
+    --padding-block: .4em;
+    --padding-inline: .4em;
 
     --line-thickness: 2px;
 
@@ -35,4 +35,18 @@
 
 
     --wp--style--gallery-gap-default: 1rem;
+}
+
+@media (min-width: 375px) {
+    :root {
+    	--padding-block: .5em;
+		--padding-inline: .5em;
+	}
+}
+
+@media (min-width: 544px) {
+    :root {
+    	--padding-block: .5em;
+		--padding-inline: .75em;
+	}
 }
