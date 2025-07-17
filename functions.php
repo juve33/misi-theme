@@ -30,7 +30,7 @@ function misi_theme_update($transient) {
             $transient->response[$theme_slug] = array(
                 'theme'       => $theme_slug,
                 'new_version' => $body->version,
-                'new_version' => 'https://github.com/juve33/misi-theme',
+                'url' => 'https://github.com/juve33/misi-theme',
                 'package'     => $body->download_url
             );
         }
