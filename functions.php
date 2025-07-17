@@ -14,6 +14,33 @@ add_action('after_setup_theme', 'misi_theme_support');
 
 
 
+function misi_theme_update($transient) {
+    if (!is_object($transient)) {
+        $transient = new stdClass();
+    }
+
+    $theme_slug = 'misi';
+    $current_version = wp_get_theme($theme_slug)->get('Version');
+    
+    $response = wp_remote_get('https://juve33.github.io/wp-theme-updater/misi.json');
+
+    if (!is_wp_error($response)) {
+        $body = json_decode(wp_remote_retrieve_body($response));
+        if (version_compare($current_version, $body->version, '<')) {
+            $transient->response[$theme_slug] = array(
+                'theme'       => $theme_slug,
+                'new_version' => $body->version,
+                'package'     => $body->download_url
+            );
+        }
+    }
+    return $transient;
+}
+
+add_filter('site_transient_update_themes', 'misi_theme_update');
+
+
+
 function misi_media_sizes() {
 
     update_option( 'medium_size_h', 500 );
