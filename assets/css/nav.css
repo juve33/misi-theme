@@ -39,8 +39,8 @@
     grid-template-columns: calc(4 * var(--padding-block) + 2em) 3em auto auto;
     align-items: center;
 
-    background: #fff;
-    box-shadow: inset 0px 0px 0px var(--line-thickness) #000;
+    background: var(--bg-color);
+    box-shadow: inset 0px 0px 0px var(--line-thickness) currentColor;
 }
 
 .nav-wrapper>* {
@@ -77,8 +77,8 @@
     align-items: center;
 
     box-shadow:
-        inset 0px calc(-.5 * var(--line-thickness)) 0px 0px #000,
-        inset var(--line-thickness) 0px 0px 0px #000;
+        inset 0px calc(-.5 * var(--line-thickness)) 0px 0px currentColor,
+        inset var(--line-thickness) 0px 0px 0px currentColor;
 }
 
 .nav-wrapper>.perspective {
@@ -88,8 +88,14 @@
 
 	background: scroll url(../images/ISO-Ansicht.svg) no-repeat center / 90% auto;
     box-shadow:
-        inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
-        inset var(--line-thickness) 0px 0px 0px #000;
+        inset 0px calc(.5 * var(--line-thickness)) 0px 0px currentColor,
+        inset var(--line-thickness) 0px 0px 0px currentColor;
+}
+
+@media (prefers-color-scheme: dark) {
+	.nav-wrapper>.perspective {
+		background-image: url(../images/ISO-Ansicht_inverted.svg);
+	}
 }
 
 .nav-wrapper>.page-title {
@@ -100,8 +106,8 @@
     padding: calc(var(--padding-block) / var(--factor)) calc(var(--padding-inline) / var(--factor));
 
     box-shadow:
-        inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
-        inset var(--line-thickness) 0px 0px 0px #000;
+        inset 0px calc(.5 * var(--line-thickness)) 0px 0px currentColor,
+        inset var(--line-thickness) 0px 0px 0px currentColor;
 }
 
 .main-nav .navigation li {
@@ -112,8 +118,8 @@
     flex: 1 1 auto;
 
     box-shadow:
-        inset calc(.5 * var(--line-thickness)) 0px 0px 0px #000,
-        inset calc(-.5 * var(--line-thickness)) 0px 0px 0px #000;
+        inset calc(.5 * var(--line-thickness)) 0px 0px 0px currentColor,
+        inset calc(-.5 * var(--line-thickness)) 0px 0px 0px currentColor;
     
     user-select: none;
 }
@@ -127,13 +133,13 @@
 .main-nav .navigation li.open,
 .main-nav .navigation li:has(:focus),
 .main-nav .navigation li:hover {
-    background-color: #000;
+    background-color: currentColor;
 }
 
 .main-nav .navigation li.open>a,
 .main-nav .navigation li:has(:focus)>a,
 .main-nav .navigation li:hover>a {
-    color: #fff;
+    color: var(--bg-color);
 }
 
 .main-nav a {
@@ -148,8 +154,8 @@
     bottom: calc(100% - var(--line-thickness));
     right: calc(-.5 * var(--line-thickness));
 
-    box-shadow: inset 0px 0px 0px var(--line-thickness) #000;
-    background: #fff;
+    box-shadow: inset 0px 0px 0px var(--line-thickness) currentColor;
+    background: var(--bg-color);
 
     opacity: 0;
     height: 0;
@@ -173,6 +179,6 @@
     min-width: 100%;
     
     box-shadow:
-        inset 0px calc(.5 * var(--line-thickness)) 0px 0px #000,
-        inset 0px calc(-.5 * var(--line-thickness)) 0px 0px #000;
+        inset 0px calc(.5 * var(--line-thickness)) 0px 0px currentColor,
+        inset 0px calc(-.5 * var(--line-thickness)) 0px 0px currentColor;
 }
