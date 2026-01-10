@@ -9,7 +9,6 @@
 .wp-block-button:has(:focus),
 .wp-block-button:hover {
     background-color: currentColor;
-    color: var(--bg-color);
 }
 
 .wp-block-button a {
@@ -22,6 +21,10 @@
     font-style: normal;
     font-size: 1.5em;
     line-height: 1em;
+}
+
+.wp-block-button:hover a {
+    color: var(--bg-color);
 }
 
 /* GROUP */
