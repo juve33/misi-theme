@@ -2,14 +2,14 @@
 
 .wp-block-button {
     box-shadow: 
-        inset var(--line-thickness) var(--line-thickness) 0px 0px #000,
-        inset calc(-1 * var(--line-thickness)) calc(-1 * var(--line-thickness)) 0px 0px #000;
+        inset var(--line-thickness) var(--line-thickness) 0px 0px currentColor,
+        inset calc(-1 * var(--line-thickness)) calc(-1 * var(--line-thickness)) 0px 0px currentColor;
 }
 
 .wp-block-button:has(:focus),
 .wp-block-button:hover {
-    background-color: #000;
-    color: #fff;
+    background-color: currentColor;
+    color: var(--bg-color);
 }
 
 .wp-block-button a {
