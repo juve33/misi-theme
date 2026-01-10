@@ -26,7 +26,7 @@ function misi_theme_update($transient) {
 
     if (!is_wp_error($response)) {
         $body = json_decode(wp_remote_retrieve_body($response));
-        if (version_compare($current_version, $body->version, '<')) {
+        if (($body != NULL) && (version_compare($current_version, $body->version, '<'))) {
             $transient->response[$theme_slug] = array(
                 'theme'       => $theme_slug,
                 'new_version' => $body->version,
