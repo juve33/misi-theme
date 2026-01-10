@@ -188,6 +188,12 @@
     top: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+	.wp-block-media-text .wp-block-media-text__media [src$=".svg"] {
+		filter: invert(100%);
+	}
+}
+
 @media (min-width: 544px) {
     .wp-block-media-text .wp-block-media-text__media,
     .wp-block-media-text .wp-block-media-text__media img {

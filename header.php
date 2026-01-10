@@ -42,13 +42,16 @@
 	<script id="misitheme-favicon-js" type="text/javascript">
 		document.addEventListener('DOMContentLoaded', () => {
 			const favicon = document.getElementById('favicon');
+			const logo = document.getElementById('logo');
 			const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 			
 			function updateFavicon() {
 				if (darkModeMediaQuery.matches) {
 					favicon.href = "<?php echo $darkmode_icon; ?>";
+					logo.src = "<?php echo $darkmode_icon; ?>";
 				} else {
 					favicon.href = "<?php echo $icon; ?>";
+					logo.src = "<?php echo $icon; ?>";
 				}
 			}
 
@@ -79,7 +82,8 @@
 							echo $logo[0];
 						}
 					?>"
-				alt="Logo" />
+				alt="Logo"
+				id="logo" />
 			</a>
 
 			<?php

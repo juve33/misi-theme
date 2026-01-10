@@ -19,6 +19,8 @@
 }
 
 :root {
+	--bg-color: #fff;
+
     --standard-margin: 5rem;
 
     --padding-block: .4em;
@@ -35,6 +37,12 @@
 
 
     --wp--style--gallery-gap-default: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #111;
+	}
 }
 
 @media (min-width: 375px) {
