@@ -128,6 +128,7 @@
     display: inline-block;
     width: 100%;
     padding: var(--padding-block) var(--padding-inline);
+    box-sizing: border-box;
 }
 
 .main-nav .navigation li.open,
