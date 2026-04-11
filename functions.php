@@ -22,7 +22,7 @@ function misi_theme_update($transient) {
     $theme_slug = 'misi';
     $current_version = wp_get_theme($theme_slug)->get('Version');
     
-    $response = wp_remote_get('https://juve33.github.io/wp-theme-updater/misi.json');
+    $response = wp_remote_get('https://juve33.github.io/misi-theme/data.json');
 
     if (!is_wp_error($response)) {
         $body = json_decode(wp_remote_retrieve_body($response));
