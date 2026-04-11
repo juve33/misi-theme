@@ -28,10 +28,11 @@ jobs:
           ref: ${{ github.event.release.tag_name }}
       - name: Create zip
         run: git archive -o "$NAME.zip" HEAD
+        run: echo "$NAME.zip created"
       - name: Upload zip to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ github.event.release.tag_name }} misi.zip
+        run: gh release upload ${{ github.event.release.tag_name }} "$NAME.zip"
     
   deploy:
     environment:
