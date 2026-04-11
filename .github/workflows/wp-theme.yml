@@ -18,6 +18,8 @@ concurrency:
 
 jobs:
   build:
+    environment:
+      name: releases
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +27,7 @@ jobs:
         with:
           ref: ${{ github.event.release.tag_name }}
       - name: Create zip
-        run: git archive -o misi.zip HEAD
+        run: git archive -o "$NAME.zip" HEAD
       - name: Upload zip to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
