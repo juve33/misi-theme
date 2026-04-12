@@ -8,8 +8,6 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
@@ -59,6 +57,8 @@ jobs:
     name: Build
     needs: [ read-style-css, create-release ]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Install GitHub CLI
         run: sudo apt-get install gh -y
@@ -76,6 +76,8 @@ jobs:
     needs: [ read-style-css ]
     if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -106,6 +108,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
