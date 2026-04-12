@@ -1,54 +1,102 @@
-name: Send latest theme release
+name: Send theme release to WP
+description: Sends creates an archive of the release and provides the release to WordPress
+author: Julian Velling
 
 on:
-  release:
-    types: [published]
+  workflow_call
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
-  build:
-    environment:
-      name: releases
+  read-style-css:
+    name: Read style.css
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.parse-style-css.outputs.version }}
+      changed: ${{ steps.parse-style-css.outputs.changed }}
+      requires: ${{ steps.parse-style-css.outputs.requires }}
+      tested: ${{ steps.parse-style-css.outputs.tested }}
+      text_domain: ${{ steps.parse-style-css.outputs.text_domain }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Parse style.css
+        id: parse-style-css
+        uses: juve33/workflows/.github/actions/parse-style-css@main
+
+  create-release:
+    name: Create Release
+    needs: [ read-style-css ]
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          ref: ${{ github.event.release.tag_name }}
+          tag_name: ${{ needs.read-style-css.outputs.version }}
+          release_name: ${{ needs.read-style-css.outputs.version }}
+          draft: false
+          prerelease: false
+
+  build:
+    name: Build
+    needs: [ read-style-css, create-release ]
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install GitHub CLI
+        run: sudo apt-get install gh -y
+      - name: Checkout
+        uses: actions/checkout@v6
       - name: Create zip
-        run: git archive -o "${{ vars.THEME_SLUG }}.zip" HEAD
+        run: git archive -o "${{ needs.read-style-css.outputs.text_domain }}.zip" HEAD
       - name: Upload zip to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh release upload ${{ github.event.release.tag_name }} "${{ vars.THEME_SLUG }}.zip"
-    
+        run: gh release upload ${{ needs.read-style-css.outputs.version }} "${{ needs.read-style-css.outputs.text_domain }}.zip"
+  
+  create-data-json:
+    name: Create data.json
+    needs: [ read-style-css ]
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Create Directory
+        run: |
+          mkdir public
+      - name: Create data.json
+        run: |
+          echo '${{ toJSON(needs.read-style-css.outputs) }}' > public/data.json
+
   deploy:
+    name: Deploy
+    needs: [ read-style-css, create-data-json, build ]
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Setup Pages
-        uses: actions/configure-pages@v5
-      - name: Prepare Pages content
-        run: |
-          mkdir public
-          cp data.json public/
+        uses: actions/configure-pages@v6
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public
       - name: Deploy to GitHub Pages
