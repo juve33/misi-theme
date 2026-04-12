@@ -39,6 +39,8 @@ jobs:
     needs: [ read-style-css ]
     if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v6
