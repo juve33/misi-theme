@@ -1,9 +1,10 @@
 name: Send theme release to WP
 description: Sends creates an archive of the release and provides the release to WordPress
-author: Julian Velling
 
 on:
-  workflow_call
+  push:
+    branches:
+      - 'main'
 
 permissions:
   contents: write
