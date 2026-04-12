@@ -84,10 +84,14 @@ jobs:
           mkdir public
       - name: Create data.json
         run: |
-          echo '"version": ${{ needs.read-style-css.outputs.version }},' > public/data.json
-          echo '"download_url": "https://github.com/juve33/misi-theme/releases/latest/download/misi.zip",' >> public/data.json
-          echo '"requires": ${{ needs.read-style-css.outputs.requires }},' >> public/data.json
-          echo '"tested": ${{ needs.read-style-css.outputs.tested }},' >> public/data.json
+          cat > public/data.json <<EOF
+          {
+            "version": "${{ needs.read-style-css.outputs.version }}",
+            "download_url": "https://github.com/juve33/misi-theme/releases/latest/download/misi.zip",
+            "requires": "${{ needs.read-style-css.outputs.requires }}",
+            "tested": "${{ needs.read-style-css.outputs.tested }}"
+          }
+          EOF
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
