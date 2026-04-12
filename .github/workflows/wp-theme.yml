@@ -35,7 +35,7 @@ jobs:
   create-release:
     name: Create Release
     needs: [ read-style-css ]
-    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -54,7 +54,7 @@ jobs:
   build:
     name: Build
     needs: [ read-style-css, create-release ]
-    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Install GitHub CLI
@@ -71,7 +71,7 @@ jobs:
   create-data-json:
     name: Create data.json
     needs: [ read-style-css ]
-    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -86,7 +86,7 @@ jobs:
   deploy:
     name: Deploy
     needs: [ read-style-css, create-data-json, build ]
-    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
