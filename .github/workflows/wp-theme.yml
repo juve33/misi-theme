@@ -35,7 +35,7 @@ jobs:
   create-release:
     name: Create Release
     needs: [ read-style-css ]
-    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -70,7 +70,7 @@ jobs:
   create-data-json:
     name: Create data.json
     needs: [ read-style-css ]
-    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
+    if: ${{ needs.read-style-css.outputs.changed == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
