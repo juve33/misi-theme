@@ -66,6 +66,7 @@ jobs:
         uses: actions/checkout@v6
       - name: Create zip
         run: git archive -o "${{ needs.read-style-css.outputs.text_domain }}.zip" HEAD
+        run: git archive --prefix=${{ needs.read-style-css.outputs.text_domain }}/ -o ${{ needs.read-style-css.outputs.text_domain }}.zip HEAD
       - name: Upload zip to release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
