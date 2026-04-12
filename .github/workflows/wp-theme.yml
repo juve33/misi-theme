@@ -54,7 +54,6 @@ jobs:
   build:
     name: Build
     needs: [ read-style-css, create-release ]
-    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Install GitHub CLI
@@ -85,8 +84,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: [ read-style-css, create-data-json, build ]
-    if: ${{ needs.read-style-css.outputs.changed != 'true' }}
+    needs: [ create-data-json, build ]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
